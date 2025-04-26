@@ -1,19 +1,4 @@
-/* app.component.css modifié */
-
-html,
-body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  background-color: #3e4c59;
-  scroll-padding-top: 70px;
-}
-
-main {
-  padding-top: 0;
-}
+/* AppComponent Styles */
 
 .h-wrapper {
   margin: 2rem 0 0 0;
@@ -26,7 +11,7 @@ main {
 
 .h-container {
   background-color: white;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.4);
   width: 95%;
   max-width: 1200px;
   border-radius: 18px;
@@ -71,19 +56,20 @@ main {
 .h-title {
   font-size: 1.6rem;
   font-weight: 600;
-  color: #3f4d59;
+  color: var(--color-black-text);
   text-align: center;
   margin: 0 auto;
   flex: 1;
   display: flex;
   justify-content: center;
+  font-family: var(--font-title-primary);
 }
 
 .h-toggle {
   display: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #3f4d59;
+  color: var(--color-black-text);
   background: none;
   border: none;
   margin-left: 1rem;
@@ -97,7 +83,7 @@ main {
 
 .h-nav a {
   text-decoration: none;
-  color: #3f4d59;
+  color: var(--color-secondary);
   font-weight: 500;
   font-size: 0.85rem;
   transition: all 0.3s ease;
@@ -105,22 +91,22 @@ main {
 
 .h-nav a:hover {
   transform: scale(0.95);
-  border-bottom: 2px solid #ff7900;
+  border-bottom: 2px solid var(--color-primary);
 }
 
 .h-nav a.active {
-  border-bottom: 2px solid #ff7900;
+  border-bottom: 2px solid var(--color-primary);
 }
 
 .h-cta {
-  box-shadow: 0px 4px 12px rgba(255, 121, 0, 0.4);
-  background: linear-gradient(90deg, #ff7900 0%, #ffa347 100%);
-  color: white;
+  box-shadow: 0px 4px 12px rgba(255, 109, 0, 0.4);
+  background: linear-gradient(90deg, var(--color-primary) 0%, #ffa347 100%);
+  color: var(--color-black-text);
   padding: 0.35rem 1rem;
   border-radius: 20px;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.75rem;
+  font-size: 1rem;
   transition:
     box-shadow 0.3s ease,
     transform 0.3s ease,
@@ -180,7 +166,8 @@ main {
     padding: 0.3rem;
     height: 32px;
     border-radius: 18px;
-    background: linear-gradient(90deg, #ff7900 0%, #ffa347 100%);
+    background: linear-gradient(90deg, var(--color-primary) 0%, #ffa347 100%);
+    color: var(--color-black-text);
   }
 
   .h-nav.mobile-only {

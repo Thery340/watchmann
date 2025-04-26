@@ -1,0 +1,59 @@
+/* home.component.css */
+
+html,
+body {
+  overflow-x: hidden; /* Empêche le scroll horizontal */
+}
+
+.home-background {
+  position: fixed; /* Fixé pour ne pas bouger avec le scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0; /* Plus bas que le contenu */
+  overflow: hidden;
+  pointer-events: none; /* Le décor ne doit pas capturer d'interaction */
+}
+
+.home-background img {
+  position: absolute;
+  opacity: 0.8;
+}
+
+.decor-ellipse {
+  position: absolute;
+  bottom: -60px;
+  left: -35px;
+  width: 20%;
+  height: auto;
+  opacity: 0.15; /* Effet subtil */
+  z-index: 0;
+}
+
+.decor-wave {
+  position: absolute;
+  top: 0;
+  right: 30%;
+  width: auto;
+  height: 100vh; /* Utilise plutôt un pourcentage de hauteur */
+  opacity: 0.15;
+  z-index: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .decor-ellipse,
+  .decor-wave {
+    display: none; /* Masqué sur mobile pour éviter l'encombrement */
+  }
+}
+
+.home-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+}

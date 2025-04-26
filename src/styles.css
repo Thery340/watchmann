@@ -1,7 +1,44 @@
+/* Watchmann - styles.css (avec charte graphique intégrée) */
+
+:root {
+  /* Couleurs principales */
+  --color-primary: #ff6d00; /* Orange Watchmann */
+  --color-secondary: #3f4d59; /* Gris Watchmann */
+  --color-background: #3f4d59; /* Fond principal */
+  --color-text: #ffffff; /* Texte par défaut */
+  --color-black-text: #000000; /* Texte noir */
+
+  /* Polices principales */
+  --font-title-primary: 'Calibri', 'Segoe UI', sans-serif;
+  --font-title-secondary: 'Open Sans', 'Segoe UI', sans-serif;
+}
+
+html,
 body {
+  height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #3f4d59;
-  color: white; /* Optionnel, mais utile si ton texte est clair */
-  font-family: 'Segoe UI', Roboto, sans-serif; /* tu pourras changer la police ensuite */
+  overflow-x: hidden;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-title-secondary);
+  scroll-padding-top: 70px;
+}
+
+main {
+  padding-top: 0;
+}
+
+/* Polices spécifiques */
+h1,
+.main-title {
+  font-family: var(--font-title-primary);
+}
+
+h2,
+h3,
+h4,
+.secondary-title {
+  font-family: var(--font-title-secondary);
 }
