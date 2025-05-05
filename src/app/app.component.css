@@ -1,5 +1,7 @@
 /* AppComponent Styles */
 
+/* AppComponent Styles */
+
 .h-wrapper {
   margin: 2rem 0 0 0;
   padding: 0;
@@ -10,21 +12,18 @@
 }
 
 .h-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 0.25rem 1rem;
   background-color: white;
-  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.4);
+  border-radius: 18px;
   width: 95%;
   max-width: 1200px;
-  border-radius: 18px;
-  padding: 0.25rem 1rem;
   height: 50px;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.4);
   z-index: 10;
-  position: relative;
-  transition:
-    background-color 0.3s ease,
-    backdrop-filter 0.3s ease;
 }
 
 @media screen and (min-width: 769px) {
@@ -54,15 +53,14 @@
 }
 
 .h-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 1.6rem;
   font-weight: 600;
   color: var(--color-black-text);
-  text-align: center;
-  margin: 0 auto;
-  flex: 1;
-  display: flex;
-  justify-content: center;
   font-family: var(--font-title-primary);
+  pointer-events: none;
 }
 
 .h-toggle {
@@ -119,12 +117,6 @@
   background-color: var(--color-primary);
 }
 
-@media screen and (max-width: 768px) {
-  .h-toggle {
-    display: inline-block;
-  }
-}
-
 .h-nav {
   display: flex;
   gap: 2.5rem;
@@ -155,16 +147,13 @@
   color: var(--color-primary);
 }
 
-.h-nav a:hover::after {
+.h-nav a:hover::after,
+.h-nav a.active::after {
   width: 100%;
 }
 
 .h-nav a.active {
   color: var(--color-primary);
-}
-
-.h-nav a.active::after {
-  width: 100%;
 }
 
 .h-cta {
@@ -199,6 +188,10 @@
 
 .desktop-only {
   display: inline-flex;
+}
+
+.mobile-only {
+  display: none;
 }
 
 .footer {
@@ -247,8 +240,15 @@
   width: 100%;
 }
 
-.mobile-only {
-  display: none;
+@media screen and (max-width: 1024px) {
+  .h-title {
+    position: static;
+    transform: none;
+    font-size: 1.3rem;
+    text-align: center;
+    pointer-events: auto;
+    flex: 1;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -263,19 +263,23 @@
     justify-content: space-between;
     align-items: center;
   }
-
   .desktop-only {
     display: none;
   }
-
   .mobile-only {
     display: inline-flex;
   }
-
   .h-navbar-group {
     gap: 1rem;
   }
-
+  .h-title {
+    position: static;
+    transform: none;
+    font-size: 1.2rem;
+    text-align: center;
+    pointer-events: auto;
+    flex: 1;
+  }
   .h-cta.mobile-only {
     font-size: 0.75rem;
     padding: 0.3rem;
@@ -284,7 +288,6 @@
     background: linear-gradient(90deg, var(--color-primary) 0%, #ffa347 100%);
     color: var(--color-black-text);
   }
-
   .h-nav.mobile-only {
     padding: 0.5rem 0;
     margin: 0 auto;
@@ -298,11 +301,9 @@
     box-sizing: border-box;
     gap: 0.25rem;
   }
-
   .h-nav.mobile-only.open {
     display: flex;
   }
-
   .h-toggle {
     display: inline-block;
   }
@@ -312,7 +313,6 @@
   .h-title {
     font-size: 1rem;
   }
-
   .h-logo-img {
     height: 2.5rem;
   }

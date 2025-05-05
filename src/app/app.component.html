@@ -1,4 +1,3 @@
-<!-- app.component.html -->
 <header class="h-wrapper">
   <div class="h-container">
     <!-- Bloc contenant le logo -->
@@ -13,9 +12,9 @@
     <div class="h-navbar-group">
       <nav class="h-nav desktop-only h-nav-desktop">
         <a routerLink="/offres" routerLinkActive="active" class="h-link-desktop">Offres</a>
-        <a routerLink="/nous-connaitre" routerLinkActive="active" class="h-link-desktop"
-          >Nous Connaître</a
-        >
+        <a routerLink="/nous-connaitre" routerLinkActive="active" class="h-link-desktop">
+          Nous Connaître
+        </a>
       </nav>
       <a routerLink="/demo" class="h-cta desktop-only">Demander une démo</a>
     </div>
@@ -28,20 +27,20 @@
       <span></span>
     </div>
   </div>
-  <!-- ✅ fermeture correcte du .h-container -->
 
   <!-- Navigation mobile -->
   <nav class="h-nav mobile-only h-nav-mobile" [class.open]="menuOpen">
     <a routerLink="/offres" routerLinkActive="active" class="h-link-mobile">Offres</a>
-    <a routerLink="/nous-connaitre" routerLinkActive="active" class="h-link-mobile"
-      >Nous Connaître</a
-    >
+    <a routerLink="/nous-connaitre" routerLinkActive="active" class="h-link-mobile">
+      Nous Connaître
+    </a>
   </nav>
 </header>
 
 <main>
   <router-outlet></router-outlet>
 </main>
+
 <footer class="footer">
   <div class="footer-links">
     <a href="#" class="nav-link">Conditions générales</a>

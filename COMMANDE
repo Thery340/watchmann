@@ -6,5 +6,5 @@ ctrl + shift + ù
 
 Depot Git : 
 git add .
-git commit -m "Home page"
+git commit -m "Ajout du footer"
 git push
