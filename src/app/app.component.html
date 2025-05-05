@@ -1,6 +1,5 @@
 <!-- app.component.html -->
 <header class="h-wrapper">
-  <!-- Enveloppe globale du header -->
   <div class="h-container">
     <!-- Bloc contenant le logo -->
     <div class="h-logo">
@@ -23,8 +22,13 @@
 
     <!-- Bouton mobile -->
     <a routerLink="/demo" class="h-cta mobile-only">Demander une démo</a>
-    <div class="h-toggle mobile-only" (click)="menuOpen = !menuOpen">&#9776;</div>
+    <div class="h-toggle mobile-only" [class.open]="menuOpen" (click)="menuOpen = !menuOpen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </div>
+  <!-- ✅ fermeture correcte du .h-container -->
 
   <!-- Navigation mobile -->
   <nav class="h-nav mobile-only h-nav-mobile" [class.open]="menuOpen">
@@ -34,6 +38,16 @@
     >
   </nav>
 </header>
+
 <main>
   <router-outlet></router-outlet>
 </main>
+<footer class="footer">
+  <div class="footer-links">
+    <a href="#" class="nav-link">Conditions générales</a>
+    <a href="#" class="nav-link">Conditions d'utilisation</a>
+    <a href="#" class="nav-link">Politique de confidentialité</a>
+    <a href="#" class="nav-link">Mentions légales</a>
+    <a href="#" class="nav-link">Sécurité</a>
+  </div>
+</footer>
