@@ -6,5 +6,5 @@ ctrl + shift + ù
 
 Depot Git : 
 git add .
-git commit -m "Centrage du titre sur le header"
+git commit -m "Carré blanc homePage"
 git push

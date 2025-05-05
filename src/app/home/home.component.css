@@ -32,7 +32,7 @@ body {
 
 .decor-wave {
   top: -60px;
-  right: 30%;
+  right: 25%; /* recentré depuis 30% */
   width: auto;
   height: 110vh;
   opacity: 0.15;
@@ -80,6 +80,13 @@ body {
   }
   .home-subtitle {
     font-size: 1.5rem;
+  }
+  .decor-ellipse {
+    display: none; /* cache l'ellipse pour iPad */
+  }
+  .decor-wave {
+    right: 20%; /* recentrage léger en tablette */
+    margin-top: -3rem;
   }
 }
 
@@ -161,12 +168,9 @@ body {
   width: 250px;
   max-width: 90vw;
   text-align: center;
-
-  /* 💡 Ombre double : profondeur + halo orangé */
   box-shadow:
     0 12px 24px rgba(0, 0, 0, 0.25),
-    /* profondeur */ 0 0 16px rgba(255, 109, 0, 0.3); /* halo orangé */
-
+    0 0 16px rgba(255, 109, 0, 0.3);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
@@ -237,11 +241,14 @@ body {
   align-items: center;
   gap: 0.5rem;
   max-width: 150px;
+  padding: 1rem;
+  border-radius: 12px;
 }
 
 .fonctionnalite-item img {
   width: 48px;
-  height: auto;
+  height: 48px;
+  object-fit: contain;
   filter: grayscale(100%) brightness(0.2);
 }
 
@@ -254,9 +261,8 @@ body {
 @media screen and (max-width: 1024px) {
   .fonctionnalites-section {
     width: 80%;
-    padding: 1.5rem 1.5rem;
+    padding: 1.5rem;
   }
-
   .fonctionnalites-items {
     gap: 4rem;
   }
@@ -267,51 +273,24 @@ body {
     width: 90%;
     padding: 1.5rem 1rem;
   }
-
   .fonctionnalites-title {
     font-size: 1.5rem;
   }
-
   .fonctionnalites-subtitle {
     font-size: 0.95rem;
     margin-bottom: 2rem;
   }
-
   .fonctionnalites-items {
     flex-direction: column;
     gap: 2rem;
   }
-
   .fonctionnalite-item {
     max-width: 100%;
   }
-
   .fonctionnalite-item img {
     width: 42px;
   }
-
   .fonctionnalite-item p {
     font-size: 0.9rem;
   }
-}
-.fonctionnalite-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  max-width: 150px;
-  padding: 1rem;
-  border-radius: 12px;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.fonctionnalite-item:hover,
-.fonctionnalite-item:active {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.15),
-    0 0 10px rgba(255, 109, 0, 0.2);
-  background-color: #fefefe;
 }
