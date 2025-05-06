@@ -32,7 +32,7 @@ body {
 
 .decor-wave {
   top: -60px;
-  right: 25%; /* recentré depuis 30% */
+  right: 25%;
   width: auto;
   height: 110vh;
   opacity: 0.15;
@@ -82,11 +82,14 @@ body {
     font-size: 1.5rem;
   }
   .decor-ellipse {
-    display: none; /* cache l'ellipse pour iPad */
+    display: none;
   }
   .decor-wave {
-    right: 20%; /* recentrage léger en tablette */
+    right: 20%;
     margin-top: -3rem;
+  }
+  .clients-track {
+    gap: 6rem;
   }
 }
 
@@ -102,6 +105,29 @@ body {
   .home-subtitle {
     font-size: 1.2rem;
   }
+  .clients-title {
+    font-size: 2.4rem;
+    flex-direction: column;
+  }
+  .clients-title::before,
+  .clients-title::after {
+    display: none;
+  }
+  .clients-track {
+    gap: 4rem;
+  }
+  .clients-track img {
+    height: 60px;
+  }
+  .feature-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin: 4rem 0;
+  }
+  .feature-card {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -110,6 +136,12 @@ body {
   }
   .home-subtitle {
     font-size: 1rem;
+  }
+  .clients-track {
+    gap: 2rem;
+  }
+  .clients-track img {
+    height: 50px;
   }
 }
 
@@ -125,7 +157,7 @@ body {
 
 .h-cta {
   box-shadow: 0px 4px 12px rgba(255, 109, 0, 0.4);
-  background: linear-gradient(90deg, var(--color-primary) 0%, #ffa347 100%);
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary) 100%);
   color: var(--color-black-text);
   padding: 0.35rem 1rem;
   border-radius: 20px;
@@ -258,19 +290,105 @@ body {
   margin: 0;
 }
 
-@media screen and (max-width: 1024px) {
-  .fonctionnalites-section {
-    width: 80%;
-    padding: 1.5rem;
+.clients-section {
+  border-radius: 16px;
+  padding: 2rem;
+  margin: -1rem auto;
+  width: 80%;
+  max-width: 1000px;
+  text-align: center;
+}
+
+.clients-title {
+  font-size: 3.6rem;
+  font-weight: 200;
+  color: white;
+  font-family: var(--font-title-primary);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.clients-title::before,
+.clients-title::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--color-primary), transparent);
+  max-width: 100px;
+}
+
+.clients-carousel {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 2rem 0;
+}
+
+.clients-track {
+  display: flex;
+  gap: 10rem;
+  width: max-content;
+  animation: scroll-left 20s linear infinite;
+}
+
+.clients-track img {
+  height: 70px;
+  filter: grayscale(100%) brightness(0.8);
+  opacity: 0.7;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    filter 0.3s ease;
+}
+
+.clients-track img:hover {
+  filter: grayscale(0%) brightness(1);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
   }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.clients-slider-wrapper {
+  overflow: hidden;
+  width: 100%;
+  padding: 2rem 0;
+  position: relative;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+@media screen and (max-width: 1024px) {
   .fonctionnalites-items {
     gap: 4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .fonctionnalite-item {
+    max-width: 200px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .fonctionnalites-section {
-    width: 90%;
+    width: 25%;
     padding: 1.5rem 1rem;
   }
   .fonctionnalites-title {
@@ -283,14 +401,37 @@ body {
   .fonctionnalites-items {
     flex-direction: column;
     gap: 2rem;
+    align-items: center;
   }
   .fonctionnalite-item {
-    max-width: 100%;
+    max-width: 90%;
+    width: 100%;
   }
   .fonctionnalite-item img {
     width: 42px;
   }
   .fonctionnalite-item p {
     font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .fonctionnalites-title {
+    font-size: 1.3rem;
+  }
+  .fonctionnalites-subtitle {
+    font-size: 0.9rem;
+  }
+  .fonctionnalite-item img {
+    width: 36px;
+    height: 36px;
+  }
+  .fonctionnalite-item p {
+    font-size: 0.85rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .clients-title {
+    font-size: 1.5rem;
   }
 }
