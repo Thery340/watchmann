@@ -1,0 +1,67 @@
+html,
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.offre-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.offre-background img {
+  position: absolute;
+  opacity: 0.8;
+}
+
+.decor-wavehome {
+  top: -190px;
+  right: 3.5%;
+  width: auto;
+  height: 100vh;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.decor-wavehome2 {
+  top: 185px;
+  left: 30%;
+  width: 80%;
+  height: 80vh;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+/* Cacher les décors sur mobile */
+@media screen and (max-width: 768px) {
+  .decor-wavehome,
+  .decor-wavehome2 {
+    display: none !important;
+  }
+}
+
+/* Adapter les décors sur tablette (max 1024px) */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .decor-wavehome {
+    top: -80px;
+    right: 2%;
+    width: 100%;
+    height: 60vh;
+    opacity: 0.1;
+  }
+
+  .decor-wavehome2 {
+    top: 620px;
+    left: 10%;
+    width: 95%;
+    height: 60vh;
+    opacity: 0.1;
+  }
+}

@@ -60,8 +60,17 @@
   font-weight: 300;
   color: var(--color-black-text);
   font-family: var(--font-title-primary);
-  pointer-events: none;
+  pointer-events: auto;
   margin-top: -9px;
+}
+
+.h-title {
+  text-decoration: none;
+  border: none;
+}
+
+.h-title::after {
+  content: none !important;
 }
 
 .h-toggle {
