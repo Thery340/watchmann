@@ -6,5 +6,5 @@ ctrl + shift + ù
 
 Depot Git : 
 git add .
-git commit -m "Carré blanc homePage"
+git commit -m "Ils ont choisi Watchmann homePage"
 git push
