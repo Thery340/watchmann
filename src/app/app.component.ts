@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router'; // <-- à ajouter
 
 @Component({
   selector: 'app-root',
-  standalone: true, // ← à ajouter
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [RouterModule], // <-- obligatoire pour routerLink !
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'], // ← pluriel et tableau
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'watchmann';
   menuOpen = false;
 }
