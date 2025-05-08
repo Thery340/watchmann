@@ -115,6 +115,7 @@ body {
   }
   .offre-subtitle {
     font-size: 1.2rem;
+    margin-bottom: -2rem;
   }
 }
 
@@ -124,6 +125,7 @@ body {
   }
   .offre-subtitle {
     font-size: 1.1rem;
+    margin-bottom: -2rem;
   }
 }
 
@@ -133,6 +135,7 @@ body {
   }
   .offre-subtitle {
     font-size: 1rem;
+    margin-bottom: -2rem;
   }
 }
 
@@ -267,8 +270,8 @@ body {
 }
 
 .offre-card-header img {
-  width: 24px;
-  height: 24px;
+  width: 44px;
+  height: 44px;
 }
 
 .offre-card h3 {
@@ -311,5 +314,50 @@ body {
     width: 90%;
     max-width: 320px;
     padding: 1.5rem;
+  }
+}
+
+.offre-btn {
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: var(--font-title-secondary);
+  background: linear-gradient(90deg, #ff7a00, #ffa600);
+  color: black;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.offre-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+.offre-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* pour le texte dans les <li> éventuellement */
+}
+
+.decor-mobile {
+  display: none;
+  position: absolute;
+  bottom: -150px;
+  left: 0;
+  width: 125%;
+  height: auto;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .decor-mobile {
+    display: block;
   }
 }
