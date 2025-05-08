@@ -1,9 +1,17 @@
+/*==========================================
+=            Styles de base               =
+==========================================*/
+
 html,
 body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
+
+/*==========================================
+=            Background décoratif         =
+==========================================*/
 
 .offre-background {
   position: fixed;
@@ -39,7 +47,6 @@ body {
   z-index: 0;
 }
 
-/* Cacher les décors sur mobile */
 @media screen and (max-width: 768px) {
   .decor-wavehome,
   .decor-wavehome2 {
@@ -47,7 +54,6 @@ body {
   }
 }
 
-/* Adapter les décors sur tablette (max 1024px) */
 @media screen and (max-width: 1024px) and (min-width: 769px) {
   .decor-wavehome {
     top: -80px;
@@ -63,5 +69,247 @@ body {
     width: 95%;
     height: 60vh;
     opacity: 0.1;
+  }
+}
+
+/*==========================================
+=            Contenu principal            =
+==========================================*/
+
+.offre-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.offre-title-group {
+  max-width: 800px;
+}
+
+.offre-title {
+  font-size: 4.2rem;
+  font-weight: 200;
+  color: white;
+  font-family: var(--font-title-primary);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.offre-subtitle {
+  font-size: 1.8rem;
+  font-weight: 100;
+  color: #e0e0e0;
+  font-family: var(--font-title-secondary);
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+@media screen and (max-width: 1024px) {
+  .offre-title {
+    font-size: 2.8rem;
+  }
+  .offre-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .offre-title {
+    font-size: 2.2rem;
+  }
+  .offre-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .offre-title {
+    font-size: 1.7rem;
+  }
+  .offre-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/*==========================================
+=            Cartes d’offres              =
+==========================================*/
+
+.offre-cards {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6rem;
+  margin-top: 2rem;
+  margin-bottom: 8rem;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.offre-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  padding: 2rem;
+  width: 260px;
+  color: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  transition:
+    transform 0.4s cubic-bezier(0.25, 1.5, 0.5, 1),
+    box-shadow 0.3s ease;
+  animation: fadeUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.offre-card:nth-child(1) {
+  animation-delay: 0.3s;
+}
+.offre-card:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.offre-card:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+.offre-card:hover {
+  transform: scale(1.04) translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* Accordéon */
+
+.offre-card summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0;
+  font-family: var(--font-title-secondary);
+}
+
+.offre-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.offre-card .offre-card-content {
+  display: none;
+  margin-top: 1rem;
+  font-family: var(--font-title-secondary);
+}
+
+.offre-card[open] .offre-card-content {
+  display: block;
+}
+
+.offre-card h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.2;
+  font-family: var(--font-title-primary);
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.offre-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -4px;
+  width: 120%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, orange, transparent);
+  border-radius: 50px;
+  opacity: 0.8;
+}
+
+/* Forcer ouverture sur desktop */
+@media screen and (min-width: 769px) {
+  .offre-card summary {
+    cursor: default;
+  }
+
+  .offre-card .offre-card-content {
+    display: block;
+  }
+}
+
+/* Contenu des cartes */
+.offre-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.offre-card-header img {
+  width: 24px;
+  height: 24px;
+}
+
+.offre-card h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin: 0;
+  line-height: 1.2;
+  font-family: var(--font-title-primary);
+}
+
+.offre-price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--color-text);
+  margin: 0 0 1rem;
+  font-family: var(--font-title-secondary);
+}
+
+.offre-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  font-family: var(--font-title-secondary);
+}
+
+.offre-card ul li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .offre-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .offre-card {
+    width: 90%;
+    max-width: 320px;
+    padding: 1.5rem;
   }
 }

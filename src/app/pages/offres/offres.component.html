@@ -2,3 +2,67 @@
   <img src="assets/wavehome.png" alt="Décor wavehome" class="decor-wavehome" />
   <img src="assets/wavehome2.png" alt="Décor wavehome2" class="decor-wavehome2" />
 </div>
+<div class="offre-content">
+  <div class="offre-title-group">
+    <h1 class="offre-title">Votre établissement. Vos objectifs</h1>
+    <p class="offre-subtitle">
+      Un tarif simple, annuel ou mensuel sans surprise.<br />
+      Une solution évolutive qui s’adapte à votre réalité terrain.
+    </p>
+  </div>
+</div>
+<div class="offre-cards">
+  <details class="offre-card" [attr.open]="!isMobile ? '' : null">
+    <summary class="offre-card-header">
+      <img src="assets/star-orange.svg" alt="Icône Standard" />
+      <h3>Formule Standard</h3>
+    </summary>
+    <div class="offre-card-content">
+      <p class="offre-price">450€ / an</p>
+      <ul>
+        <li>10 QR Codes à générer et imprimer</li>
+        <li>Rondes illimitées</li>
+        <li>2 Rondiers</li>
+        <li>6 Tâches</li>
+        <li>Support de mise en place de la solution</li>
+      </ul>
+    </div>
+  </details>
+
+  <!-- Idem pour Avancée et Premium -->
+  <details class="offre-card" [attr.open]="!isMobile ? '' : null">
+    <summary class="offre-card-header">
+      <img src="assets/flamme-orange.svg" alt="Icône Avancée" />
+      <h3>Formule Avancée</h3>
+    </summary>
+    <div class="offre-card-content">
+      <p class="offre-price">800€ / an</p>
+      <ul>
+        <li>14 QR Codes sur support bois ou inox</li>
+        <li><strong>Mise en place et Création des comptes</strong></li>
+        <li>Smartphone Android</li>
+        <li>Rondes illimitées</li>
+        <li>5 Rondiers</li>
+        <li>8 Tâches</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="offre-card" [attr.open]="!isMobile ? '' : null">
+    <summary class="offre-card-header">
+      <img src="assets/valise-orange.svg" alt="Icône Premium" />
+      <h3>Formule Premium</h3>
+    </summary>
+    <div class="offre-card-content">
+      <p class="offre-price">1200€ / an</p>
+      <ul>
+        <li>20 QR Codes sur support bois ou inox</li>
+        <li><strong>Smartphone Android</strong></li>
+        <li><strong>Mise en place et Création des comptes</strong></li>
+        <li>Étude d'un circuit de ronde optimal par un professionnel</li>
+        <li>Rondes illimitées</li>
+        <li>Tâches illimitées</li>
+      </ul>
+    </div>
+  </details>
+</div>
