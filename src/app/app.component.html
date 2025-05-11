@@ -1,37 +1,43 @@
 <header class="h-wrapper">
   <div class="h-container">
-    <!-- Bloc contenant le logo -->
-    <a class="h-logo" routerLink="/">
-      <img src="assets/logo.png" alt="Logo Watchmann" class="h-logo-img" />
-    </a>
-
-    <a class="h-title" routerLink="/">watchmann</a>
+    <!-- Logo + Titre -->
+    <div class="h-left-group">
+      <a routerLink="/">
+        <img src="assets/logo.png" alt="Logo Watchmann" class="h-logo-img" />
+      </a>
+      <a class="h-title" routerLink="/">Watchmann</a>
+    </div>
 
     <!-- Bloc navigation + bouton à droite -->
     <div class="h-navbar-group">
-      <nav class="h-nav desktop-only h-nav-desktop">
-        <a routerLink="/offres" routerLinkActive="active" class="h-link-desktop">Offres</a>
-        <a routerLink="/nous-connaitre" routerLinkActive="active" class="h-link-desktop">
-          Nous Connaître
-        </a>
-      </nav>
-      <a routerLink="/demo" class="h-cta desktop-only">Demander une démo</a>
-    </div>
+      <a routerLink="/" routerLinkActive="active" class="h-link desktop-only">Accueil</a>
+      <a routerLink="/offres" routerLinkActive="active" class="h-link desktop-only">Offres</a>
+      <a routerLink="/A propos" routerLinkActive="active" class="h-link desktop-only">A propos</a>
+      <a routerLink="/contact" routerLinkActive="active" class="h-link desktop-only">
+        <span class="icon-envelope">✉</span> Contactez-nous
+      </a>
 
-    <!-- Bouton mobile -->
-    <a routerLink="/demo" class="h-cta mobile-only">Demander une démo</a>
-    <div class="h-toggle mobile-only" [class.open]="menuOpen" (click)="menuOpen = !menuOpen">
-      <span></span>
-      <span></span>
-      <span></span>
+      <a routerLink="/demo" class="h-cta desktop-only">Demander une démo</a>
+
+      <!-- Bouton mobile -->
+      <a routerLink="/demo" class="h-cta mobile-only">Demander une démo</a>
+      <div class="h-toggle mobile-only" [class.open]="menuOpen" (click)="menuOpen = !menuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </div>
 
   <!-- Navigation mobile -->
   <nav class="h-nav mobile-only h-nav-mobile" [class.open]="menuOpen">
+    <a routerLink="/" routerLinkActive="active" class="h-link-mobile">Accueil</a>
     <a routerLink="/offres" routerLinkActive="active" class="h-link-mobile">Offres</a>
-    <a routerLink="/nous-connaitre" routerLinkActive="active" class="h-link-mobile">
-      Nous Connaître
+    <a routerLink="/nous-connaitre" routerLinkActive="active" class="h-link-mobile"
+      >Nous Connaître</a
+    >
+    <a routerLink="/contact" routerLinkActive="active" class="h-link-mobile">
+      <span class="icon-envelope">✉</span> Contactez-nous
     </a>
   </nav>
 </header>
