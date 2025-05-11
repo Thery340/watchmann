@@ -190,8 +190,13 @@
 
 .icon-envelope {
   margin-right: 0.4rem;
-  font-size: 0.9rem;
-  vertical-align: middle;
+  font-size: 1.1rem; /* légèrement agrandie */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle; /* centré avec le texte */
+  line-height: 1;
+  transform: translateY(1px); /* petit ajustement vertical fin */
 }
 
 /* ========== Footer ========== */
