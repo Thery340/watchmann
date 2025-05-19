@@ -52,7 +52,7 @@
 .h-navbar-group {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.1rem;
   justify-content: flex-start;
   margin-right: 1rem;
 }

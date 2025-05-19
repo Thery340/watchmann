@@ -6,5 +6,5 @@ ctrl + shift + ù
 
 Depot Git : 
 git add .
-git commit -m "Link Offre"
+git commit -m "correction Page Home"
 git push

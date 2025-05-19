@@ -13,7 +13,12 @@
   </div>
 </div>
 <div class="offre-cards">
-  <details class="offre-card" [attr.open]="!isMobile ? '' : null">
+  <details
+    class="offre-card"
+    [attr.open]="!isMobile ? '' : null"
+    [attr.disabled]="!isMobile ? true : null"
+    [class.static]="!isMobile"
+  >
     <summary class="offre-card-header">
       <img src="assets/stars.png" alt="Icône Standard" />
       <h3>Formule Standard</h3>

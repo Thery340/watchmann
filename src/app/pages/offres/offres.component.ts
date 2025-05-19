@@ -9,11 +9,15 @@ export class OffresComponent implements OnInit {
   isMobile = false;
 
   ngOnInit() {
-    this.checkScreen();
+    this.updateScreenMode();
   }
 
   @HostListener('window:resize')
-  checkScreen() {
-    this.isMobile = window.innerWidth <= 768;
+  onResize() {
+    this.updateScreenMode();
+  }
+
+  private updateScreenMode() {
+    this.isMobile = window.innerWidth < 768;
   }
 }
