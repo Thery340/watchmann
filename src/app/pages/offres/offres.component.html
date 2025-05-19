@@ -13,6 +13,7 @@
   </div>
 </div>
 <div class="offre-cards">
+  <!-- Formule Standard -->
   <details
     class="offre-card"
     [attr.open]="!isMobile ? '' : null"
@@ -32,11 +33,13 @@
         <li>6 Tâches</li>
         <li>Support de mise en place de la solution</li>
       </ul>
-      <button class="offre-btn">Obtenir mon offre</button>
+      <button class="offre-btn" (click)="openPopup('Formule Standard'); $event.stopPropagation()">
+        Obtenir mon offre
+      </button>
     </div>
   </details>
 
-  <!-- Idem pour Avancée et Premium -->
+  <!-- Formule Avancée -->
   <details class="offre-card" [attr.open]="!isMobile ? '' : null">
     <summary class="offre-card-header">
       <img src="assets/flamme.png" alt="Icône Avancée" />
@@ -52,10 +55,13 @@
         <li>5 Rondiers</li>
         <li>8 Tâches</li>
       </ul>
-      <button class="offre-btn">Obtenir mon offre</button>
+      <button class="offre-btn" (click)="openPopup('Formule Avancée'); $event.stopPropagation()">
+        Obtenir mon offre
+      </button>
     </div>
   </details>
 
+  <!-- Formule Premium -->
   <details class="offre-card" [attr.open]="!isMobile ? '' : null">
     <summary class="offre-card-header">
       <img src="assets/sutecase.png" alt="Icône Premium" />
@@ -71,7 +77,48 @@
         <li>Rondes illimitées</li>
         <li>Tâches illimitées</li>
       </ul>
-      <button class="offre-btn">Obtenir mon offre</button>
+      <button class="offre-btn" (click)="openPopup('Formule Premium'); $event.stopPropagation()">
+        Obtenir mon offre
+      </button>
     </div>
   </details>
+
+  <!-- POPUP -->
+  <div class="popup-backdrop" *ngIf="showPopup" (click)="closePopup()"></div>
+  <div class="popup-form" *ngIf="showPopup">
+    <form (submit)="sendForm($event)">
+      <h2>
+        Demander l’offre <span>{{ selectedOffreName }}</span>
+      </h2>
+
+      <label>
+        Nom <span class="star">*</span> :
+        <input type="text" name="name" [(ngModel)]="contactForm.name" required />
+      </label>
+      <label>
+        Nom de l'entreprise <span class="star">*</span> :
+        <input type="text" name="company" [(ngModel)]="contactForm.company" required />
+      </label>
+      <label>
+        Email <span class="star">*</span> :
+        <input type="email" name="email" [(ngModel)]="contactForm.email" required />
+      </label>
+      <label>
+        Offre choisie :
+        <input type="text" name="offre" [value]="selectedOffreName" readonly />
+      </label>
+      <label>
+        Message <span class="star">*</span> :
+        <textarea name="message" [(ngModel)]="contactForm.message" required></textarea>
+      </label>
+
+      <div class="popup-actions">
+        <button type="submit" class="btn-main">Envoyer</button>
+        <button type="button" (click)="closePopup()" class="btn-cancel">Annuler</button>
+      </div>
+      <div class="form-required-info"><span class="star">*</span> Champs obligatoires</div>
+      <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+    </form>
+  </div>
 </div>

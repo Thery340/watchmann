@@ -6,8 +6,14 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-title-secondary, 'Inter', Arial, sans-serif);
 }
 
+/* =========================
+=   Décors arrière-plan    =
+========================= */
 .offre-background {
   position: fixed;
   top: 0;
@@ -18,33 +24,28 @@ body {
   overflow: hidden;
   pointer-events: none;
 }
-
 .offre-background img {
   position: absolute;
   opacity: 0.8;
 }
-
 .decor-wavehome,
 .decor-wavehome2 {
   position: absolute;
   opacity: 0.15;
   z-index: 0;
 }
-
 .decor-wavehome {
   top: -190px;
   right: 3.5%;
   width: auto;
   height: 100vh;
 }
-
 .decor-wavehome2 {
   top: 185px;
   left: 30%;
   width: 80%;
   height: 80vh;
 }
-
 .decor-mobile {
   display: none;
   position: absolute;
@@ -55,6 +56,9 @@ body {
   z-index: 1;
 }
 
+/* =========================
+=   Titres & contenu       =
+========================= */
 .offre-content {
   position: relative;
   z-index: 2;
@@ -64,31 +68,31 @@ body {
   text-align: center;
   padding: 4rem 2rem;
 }
-
 .offre-title-group {
   max-width: 800px;
 }
-
 .offre-title {
   font-size: 4.2rem;
   font-weight: 200;
-  color: white;
-  font-family: var(--font-title-primary);
+  color: var(--color-text);
+  font-family: var(--font-title-primary, 'Inter', Arial, sans-serif);
   margin-bottom: 1.5rem;
   line-height: 1.1;
   text-wrap: balance;
 }
-
 .offre-subtitle {
   font-size: 1.8rem;
   font-weight: 100;
   color: #e0e0e0;
-  font-family: var(--font-title-secondary);
+  font-family: var(--font-title-secondary, 'Inter', Arial, sans-serif);
   line-height: 1.3;
   text-wrap: balance;
   margin-bottom: -2rem;
 }
 
+/* =========================
+=   Cartes offres          =
+========================= */
 .offre-cards {
   position: relative;
   z-index: 2;
@@ -99,7 +103,6 @@ body {
   margin-top: 2rem;
   margin-bottom: 8rem;
 }
-
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -110,13 +113,13 @@ body {
     transform: translateY(0);
   }
 }
-
 .offre-card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(63, 77, 89, 0.72); /* var(--color-background) en transparent */
+  border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 20px;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
   background-image: linear-gradient(
     to bottom right,
     rgba(255, 255, 255, 0.05),
@@ -124,32 +127,29 @@ body {
   );
   padding: 2rem;
   width: 300px;
-  color: white;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  color: var(--color-text);
+  font-family: var(--font-title-secondary, 'Inter', Arial, sans-serif);
   transition:
     transform 0.4s cubic-bezier(0.25, 1.5, 0.5, 1),
     box-shadow 0.3s ease;
   animation: fadeUp 0.6s ease forwards;
   opacity: 0;
-  position: relative; /* pour le bouton absolu */
-  min-height: 340px; /* adapte si besoin */
+  position: relative;
+  min-height: 340px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-
 .offre-card-content {
   display: none;
   margin-top: 1rem;
   text-align: center;
-  font-family: var(--font-title-secondary);
-  padding-bottom: 4rem; /* réserve de l'espace pour le bouton */
+  font-family: var(--font-title-secondary, 'Inter', Arial, sans-serif);
+  padding-bottom: 4rem;
 }
-
 .offre-card[open] .offre-card-content {
   display: block;
 }
-
 .offre-card-content ul {
   list-style: none;
   padding-left: 0;
@@ -160,15 +160,13 @@ body {
   font-weight: bold;
   margin-right: 0.6em;
 }
-
 .offre-card h3 {
   font-size: 2rem;
   font-weight: bold;
   margin: 0;
   line-height: 1.2;
-  font-family: var(--font-title-primary);
+  font-family: var(--font-title-primary, 'Inter', Arial, sans-serif);
 }
-
 .offre-card summary {
   list-style: none;
   cursor: pointer;
@@ -176,36 +174,31 @@ body {
   align-items: center;
   gap: 0.8rem;
   margin: 0;
-  font-family: var(--font-title-secondary);
+  font-family: var(--font-title-secondary, 'Inter', Arial, sans-serif);
 }
-
 .offre-card-header img {
   width: 40px;
   height: auto;
   object-fit: contain;
 }
-
 .offre-card.static summary {
   pointer-events: none;
   cursor: default;
 }
-
 .offre-card ul {
   list-style: none;
   padding-left: 0;
   margin: 0;
 }
-
 .offre-card ul li {
   margin-bottom: 0.9rem;
   font-size: 1.2rem;
 }
-
 .offre-price {
   font-size: 1.6rem;
   font-weight: bold;
   color: var(--color-text);
-  font-family: var(--font-title-secondary);
+  font-family: var(--font-title-secondary, 'Inter', Arial, sans-serif);
   margin: 0 0 1rem;
 }
 
@@ -222,18 +215,153 @@ body {
   border-radius: 999px;
   font-size: 1rem;
   font-weight: bold;
-  background: linear-gradient(90deg, #ff7a00, #ffa600);
-  color: black;
+  background: linear-gradient(90deg, var(--color-primary), #ffa600);
+  color: var(--color-black-text);
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.offre-btn:hover {
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+.offre-btn:active {
+  transform: translateX(-50%) scale(0.97);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 
-.offre-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+/* =========================
+=   POPUP FORMULAIRE       =
+========================= */
+.popup-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  z-index: 10000;
+  backdrop-filter: blur(3px);
+}
+.popup-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10001;
+  background: rgba(63, 77, 89, 0.96); /* var(--color-background) + transparence */
+  color: var(--color-text);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+  padding: 2.3rem 2rem 2rem 2rem;
+  min-width: 320px;
+  max-width: 97vw;
+  width: 400px;
+  font-family: var(--font-title-secondary, 'Inter', Arial, sans-serif);
+  animation: popup-in 0.22s cubic-bezier(0.6, 1.7, 0.43, 0.87);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+@keyframes popup-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -54%) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+.popup-form h2 {
+  font-size: 1.35rem;
+  margin-bottom: 1.1rem;
+  color: var(--color-primary);
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+  font-family: var(--font-title-primary, 'Inter', Arial, sans-serif);
+}
+.popup-form label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.15rem;
+  margin-top: 1rem;
+  color: var(--color-text);
+  letter-spacing: 0.01em;
+}
+.popup-form input,
+.popup-form textarea {
+  width: 80%;
+  padding: 0.7rem 1.05rem;
+  border-radius: 13px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: #faf8f6;
+  color: var(--color-black-text);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  margin-top: 0.22rem;
+  margin-bottom: 0.65rem;
+  transition:
+    box-shadow 0.18s,
+    border 0.18s;
+  font-family: var(--font-title-secondary, 'Inter', Arial, sans-serif);
+}
+.popup-form input:focus,
+.popup-form textarea:focus {
+  border: 1.5px solid var(--color-primary);
+  box-shadow: 0 2px 8px rgba(255, 122, 0, 0.11);
+  background: #fffdf8;
+}
+.popup-form textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+.popup-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+.btn-main {
+  background: linear-gradient(90deg, var(--color-primary), #ffa600);
+  color: var(--color-black-text);
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 999px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition:
+    background 0.2s,
+    transform 0.12s;
+  font-family: var(--font-title-secondary, 'Inter', Arial, sans-serif);
+}
+.btn-main:hover {
+  background: #ffa600;
+  transform: scale(1.03);
+}
+.btn-cancel {
+  background: #ececec;
+  color: #666;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.12s;
+  font-family: var(--font-title-secondary, 'Inter', Arial, sans-serif);
+}
+.btn-cancel:hover {
+  background: #ddd;
+  color: #333;
 }
 
 /* =============================
@@ -273,6 +401,11 @@ body {
     bottom: 1rem;
     padding: 0.7rem 1.4rem;
   }
+  .popup-form {
+    width: 97vw;
+    min-width: unset;
+    padding: 1.5rem 0.8rem;
+  }
 }
 
 /* =============================
@@ -300,20 +433,29 @@ body {
   .offre-card {
     width: 90%;
     max-width: 320px;
-    min-height: 70px; /* très compacte fermée */
-    padding: 0.7rem 1.1rem; /* padding réduit fermée */
+    min-height: 70px;
+    padding: 0.7rem 1.1rem;
     transition:
       min-height 0.3s,
       padding 0.3s;
   }
   .offre-card[open] {
-    min-height: 330px; /* hauteur adaptée ouverte */
-    padding: 1.5rem; /* padding normal ouverte */
+    min-height: 330px;
+    padding: 1.5rem;
   }
   .offre-btn {
     width: calc(100% - 2rem);
     bottom: 1rem;
     padding: 0.7rem 1.2rem;
+  }
+  .popup-form {
+    width: 98vw;
+    min-width: unset;
+    padding: 1.1rem 0.4rem;
+    font-size: 1rem;
+  }
+  .popup-form h2 {
+    font-size: 1.05rem;
   }
 }
 
@@ -330,15 +472,15 @@ body {
   .offre-card {
     width: 80%;
     max-width: 320px;
-    min-height: 55px; /* ultra compact fermée */
-    padding: 0.4rem 0.7rem; /* padding réduit fermée */
+    min-height: 55px;
+    padding: 0.4rem 0.7rem;
     transition:
       min-height 0.3s,
       padding 0.3s;
   }
   .offre-card[open] {
-    min-height: 250px; /* hauteur adaptée ouverte */
-    padding: 1.2rem; /* padding normal ouverte */
+    min-height: 250px;
+    padding: 1.2rem;
   }
   .offre-price {
     font-size: 1.1rem;
@@ -350,5 +492,14 @@ body {
     width: calc(100% - 1.2rem);
     bottom: 0.7rem;
     padding: 0.65rem 1rem;
+  }
+  .popup-form {
+    width: 99vw;
+    min-width: unset;
+    padding: 0.7rem 0.2rem;
+    font-size: 0.97rem;
+  }
+  .popup-form h2 {
+    font-size: 0.98rem;
   }
 }
