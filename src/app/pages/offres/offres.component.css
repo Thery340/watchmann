@@ -123,7 +123,7 @@ body {
     rgba(255, 255, 255, 0.02)
   );
   padding: 2rem;
-  width: 260px;
+  width: 300px;
   color: white;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
   transition:
@@ -131,10 +131,38 @@ body {
     box-shadow 0.3s ease;
   animation: fadeUp 0.6s ease forwards;
   opacity: 0;
+  position: relative; /* pour le bouton absolu */
+  min-height: 340px; /* adapte si besoin */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.offre-card-content {
+  display: none;
+  margin-top: 1rem;
+  text-align: center;
+  font-family: var(--font-title-secondary);
+  padding-bottom: 4rem; /* réserve de l'espace pour le bouton */
+}
+
+.offre-card[open] .offre-card-content {
+  display: block;
+}
+
+.offre-card-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+.offre-card-content ul li::before {
+  content: '✔';
+  color: var(--color-primary);
+  font-weight: bold;
+  margin-right: 0.6em;
 }
 
 .offre-card h3 {
-  font-size: 1.4rem;
+  font-size: 2rem;
   font-weight: bold;
   margin: 0;
   line-height: 1.2;
@@ -151,10 +179,6 @@ body {
   font-family: var(--font-title-secondary);
 }
 
-.offre-card[open] .offre-card-content {
-  display: block;
-}
-
 .offre-card-header img {
   width: 40px;
   height: auto;
@@ -166,13 +190,6 @@ body {
   cursor: default;
 }
 
-.offre-card-content {
-  display: none;
-  margin-top: 1rem;
-  text-align: center;
-  font-family: var(--font-title-secondary);
-}
-
 .offre-card ul {
   list-style: none;
   padding-left: 0;
@@ -180,20 +197,26 @@ body {
 }
 
 .offre-card ul li {
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
+  margin-bottom: 0.9rem;
+  font-size: 1.2rem;
 }
 
 .offre-price {
-  font-size: 1.25rem;
+  font-size: 1.6rem;
   font-weight: bold;
   color: var(--color-text);
   font-family: var(--font-title-secondary);
   margin: 0 0 1rem;
 }
 
+/* ======== Bouton aligné en bas ========= */
 .offre-btn {
-  margin-top: 1.5rem;
+  position: absolute;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  width: calc(100% - 4rem);
+  margin-top: 0;
   padding: 0.8rem 1.8rem;
   border: none;
   border-radius: 999px;
@@ -225,7 +248,7 @@ body {
   }
   .offre-card {
     width: 220px;
-    max-width: 85vw;
+    min-height: 470px;
     padding: 1.7rem;
   }
   .offre-cards {
@@ -244,6 +267,11 @@ body {
     width: 95%;
     height: 60vh;
     opacity: 0.1;
+  }
+  .offre-btn {
+    width: calc(100% - 2rem);
+    bottom: 1rem;
+    padding: 0.7rem 1.4rem;
   }
 }
 
@@ -272,7 +300,20 @@ body {
   .offre-card {
     width: 90%;
     max-width: 320px;
-    padding: 1.5rem;
+    min-height: 70px; /* très compacte fermée */
+    padding: 0.7rem 1.1rem; /* padding réduit fermée */
+    transition:
+      min-height 0.3s,
+      padding 0.3s;
+  }
+  .offre-card[open] {
+    min-height: 330px; /* hauteur adaptée ouverte */
+    padding: 1.5rem; /* padding normal ouverte */
+  }
+  .offre-btn {
+    width: calc(100% - 2rem);
+    bottom: 1rem;
+    padding: 0.7rem 1.2rem;
   }
 }
 
@@ -287,8 +328,17 @@ body {
     font-size: 1rem;
   }
   .offre-card {
-    width: 100%;
-    padding: 1.2rem;
+    width: 80%;
+    max-width: 320px;
+    min-height: 55px; /* ultra compact fermée */
+    padding: 0.4rem 0.7rem; /* padding réduit fermée */
+    transition:
+      min-height 0.3s,
+      padding 0.3s;
+  }
+  .offre-card[open] {
+    min-height: 250px; /* hauteur adaptée ouverte */
+    padding: 1.2rem; /* padding normal ouverte */
   }
   .offre-price {
     font-size: 1.1rem;
@@ -296,10 +346,9 @@ body {
   .offre-card h3 {
     font-size: 1.2rem;
   }
-  .offre-card {
-    width: 80%;
-    max-width: 320px;
-    padding: 1.5rem;
-    gap: 4rem;
+  .offre-btn {
+    width: calc(100% - 1.2rem);
+    bottom: 0.7rem;
+    padding: 0.65rem 1rem;
   }
 }

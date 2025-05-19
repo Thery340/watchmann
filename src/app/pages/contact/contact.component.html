@@ -25,7 +25,12 @@
 
       <h3 class="contact-thanks">Merci pour votre confiance,<br />L’équipe Watchmann</h3>
 
-      <form class="contact-form">
+      <!-- MESSAGE DE SUCCÈS -->
+      <div *ngIf="successMessage" class="form-success">
+        {{ successMessage }}
+      </div>
+
+      <form class="contact-form" (submit)="onSubmit($event)">
         <div class="row">
           <div class="form-group">
             <label for="name">Nom*</label>
@@ -53,6 +58,12 @@
               <option value="autre">Autre</option>
             </select>
           </div>
+        </div>
+
+        <!-- AJOUT OBJET ICI -->
+        <div class="form-group">
+          <label for="subject">Objet*</label>
+          <input type="text" id="subject" name="subject" required />
         </div>
 
         <div class="form-group">
