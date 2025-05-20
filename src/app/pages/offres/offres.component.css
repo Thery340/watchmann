@@ -130,8 +130,9 @@ body {
   color: var(--color-text);
   font-family: var(--font-title-secondary, 'Inter', Arial, sans-serif);
   transition:
-    transform 0.4s cubic-bezier(0.25, 1.5, 0.5, 1),
-    box-shadow 0.3s ease;
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s,
+    filter 0.25s;
   animation: fadeUp 0.6s ease forwards;
   opacity: 0;
   position: relative;
@@ -139,6 +140,15 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+
+.offre-card:hover {
+  transform: translateY(-12px) scale(1.045) rotateZ(-1deg);
+  box-shadow:
+    0 16px 40px rgba(255, 109, 0, 0.18),
+    0 4px 20px rgba(0, 0, 0, 0.28);
+  filter: brightness(1.09) saturate(1.18);
+  z-index: 2;
 }
 .offre-card-content {
   display: none;

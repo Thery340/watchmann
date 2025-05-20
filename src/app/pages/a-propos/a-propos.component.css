@@ -1,0 +1,348 @@
+.offre-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.offre-background img {
+  position: absolute;
+  opacity: 0.8;
+}
+.decor-wavehome {
+  position: absolute;
+  opacity: 0.15;
+  z-index: 0;
+  top: -50px;
+  right: -50px;
+  width: auto;
+  height: 120vh;
+}
+
+/* ========== A PROPOS - Première section ========== */
+
+.a-propos-intro {
+  padding: 4rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.a-propos-container {
+  max-width: 1000px;
+  width: 100%;
+}
+.a-propos-phrase {
+  font-size: 1.8rem;
+  font-weight: 500;
+  font-family: var(--font-title-primary);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* ========== A PROPOS - Nos engagements ========== */
+
+.engagement-icon-img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+.a-propos-engagements {
+  background-color: var(--color-background-dark);
+  padding: 2rem 1rem;
+  color: var(--color-text);
+  text-align: center;
+}
+.engagements-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  max-width: 1500px;
+  margin: 0 auto 50px auto;
+  justify-content: center;
+}
+.engagements-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-title-primary);
+}
+.engagements-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  font-family: var(--font-title-secondary);
+  opacity: 0.85;
+}
+
+/* --- Engagement cards effet verre très doux --- */
+.engagement-item {
+  background: rgba(63, 77, 89, 0.23); /* Super soft */
+  border: none; /* Pas de bordure visible */
+  border-radius: 32px;
+  backdrop-filter: blur(26px) saturate(1.12);
+  -webkit-backdrop-filter: blur(26px) saturate(1.12);
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.07),
+    rgba(255, 255, 255, 0.01)
+  );
+  box-shadow:
+    0 8px 44px 0 rgba(60, 50, 0, 0.09),
+    0 1.5px 10px 0 rgba(255, 109, 0, 0.05);
+  padding: 1.7rem 1rem 1.7rem 1rem;
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition:
+    transform 0.33s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s,
+    filter 0.23s,
+    background 0.15s;
+  animation: fadeUp 0.6s ease forwards;
+  opacity: 0;
+}
+.engagement-item:hover {
+  transform: translateY(-10px) scale(1.05) rotateZ(-1deg);
+  box-shadow:
+    0 24px 48px rgba(255, 109, 0, 0.09),
+    0 4px 22px rgba(0, 0, 0, 0.18);
+  filter: brightness(1.09) saturate(1.15);
+  background: rgba(63, 77, 89, 0.29);
+  z-index: 3;
+}
+
+.engagement-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== A PROPOS - Notre histoire ========== */
+
+.a-propos-history-section {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0 3rem 0;
+  z-index: 1;
+}
+.a-propos-history-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 137, 57, 0.16) 0%,
+    rgba(255, 109, 0, 0.13) 30%,
+    rgba(124, 66, 7, 0.1) 90%
+  );
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 0 0 90px 90px;
+  filter: blur(10px) saturate(1.12);
+  opacity: 0.86;
+}
+.a-propos-history-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.3rem 2.2rem;
+  color: #fff;
+  text-align: center;
+  border-radius: 34px;
+  box-shadow: 0 7px 40px rgba(124, 66, 7, 0.06);
+  background: rgba(40, 25, 0, 0.09); /* encore plus doux */
+  backdrop-filter: blur(19px) saturate(1.12);
+  -webkit-backdrop-filter: blur(19px) saturate(1.12);
+}
+
+.history-title {
+  margin-top: 50px;
+  font-size: 2rem;
+  margin-bottom: 1.3rem;
+  font-family: var(--font-title-primary);
+  font-weight: bold;
+  color: #fff;
+}
+.history-text {
+  font-size: 1.08rem;
+  line-height: 1.65;
+  color: #fff;
+  margin-bottom: 1.2rem;
+}
+.history-founders {
+  display: flex;
+  gap: 1.8rem;
+  justify-content: center;
+  margin: 0 0 1.4rem 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.07rem;
+}
+.history-founders li {
+  padding: 0.18em 0.9em;
+  border-radius: 12px;
+  background: rgba(255, 137, 57, 0.12);
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(124, 66, 7, 0.06);
+}
+.history-subtitle {
+  font-size: 1.22rem;
+  font-family: var(--font-title-secondary, 'Inter', Arial, sans-serif);
+  color: #ff6d00;
+  margin: 1.8rem 0 0.6rem 0;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+}
+.history-list {
+  text-align: left;
+  margin: 0 auto 1.5rem auto;
+  padding-left: 1.5em;
+  max-width: 650px;
+  color: #fff;
+}
+.history-list li {
+  margin-bottom: 0.38em;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+.history-signature {
+  margin-top: 2.2rem;
+  font-size: 1.17rem;
+  color: #ffb673;
+  font-style: italic;
+  font-family: var(--font-title-secondary, 'Inter', Arial, sans-serif);
+  letter-spacing: 0.01em;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .a-propos-history-content {
+    padding: 1.3rem 0.7rem;
+  }
+  .history-founders {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .history-list {
+    padding-left: 1em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .a-propos-phrase {
+    font-size: 1.4rem;
+  }
+}
+.a-propos-team {
+  background-color: var(--color-background-dark);
+  padding: 2rem 1rem;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.team-title {
+  font-size: 2rem;
+  margin-bottom: 2.2rem;
+  font-family: var(--font-title-primary);
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7rem;
+  max-width: 1500px;
+  margin: 0 auto 50px auto;
+  justify-content: center;
+}
+
+.team-member {
+  background: rgba(63, 77, 89, 0.23);
+  border: none;
+  border-radius: 32px;
+  backdrop-filter: blur(26px) saturate(1.12);
+  -webkit-backdrop-filter: blur(26px) saturate(1.12);
+  box-shadow: 0 8px 44px 0 rgba(60, 50, 0, 0.09);
+  padding: 2rem 1.1rem 2.2rem 1.1rem;
+  width: 285px;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition:
+    transform 0.33s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s,
+    filter 0.23s,
+    background 0.15s;
+}
+
+.team-member:hover {
+  transform: translateY(-12px) scale(1.05) rotateZ(-1deg);
+  box-shadow:
+    0 24px 48px rgba(255, 109, 0, 0.1),
+    0 4px 20px rgba(0, 0, 0, 0.16);
+  filter: brightness(1.11) saturate(1.14);
+  background: rgba(63, 77, 89, 0.3);
+  z-index: 3;
+}
+
+.team-photo {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.15rem;
+  box-shadow: 0 4px 24px rgba(255, 137, 57, 0.13);
+  border: 3.5px solid rgba(255, 255, 255, 0.17);
+  background: #fff;
+}
+
+.team-role {
+  font-size: 1.04rem;
+  font-weight: 500;
+  color: #ff8a32;
+  margin-bottom: 0.7rem;
+}
+
+.team-desc {
+  font-size: 0.97rem;
+  opacity: 0.88;
+  margin-top: 0.18rem;
+}
+
+/* Responsive pour les membres d'équipe */
+@media (max-width: 1000px) {
+  .team-grid {
+    flex-direction: column;
+    gap: 2.2rem;
+  }
+  .team-member {
+    width: 95%;
+    min-width: 200px;
+    margin: 0 auto;
+  }
+}

@@ -23,9 +23,9 @@ export class OffresComponent implements OnInit {
     message: '',
   };
 
-  // Messages de feedback
   successMessage: string = '';
   errorMessage: string = '';
+  envoiEnCours = false; // Pour bloquer le bouton pendant l'envoi
 
   ngOnInit() {
     this.updateScreenMode();
@@ -43,53 +43,44 @@ export class OffresComponent implements OnInit {
   openPopup(offreName: string) {
     this.selectedOffreName = offreName;
     this.showPopup = true;
+    this.contactForm = { name: '', company: '', email: '', message: '' };
     this.successMessage = '';
     this.errorMessage = '';
-    this.contactForm = { name: '', company: '', email: '', message: '' };
   }
 
   closePopup() {
     this.showPopup = false;
+    this.envoiEnCours = false;
+    this.successMessage = '';
+    this.errorMessage = '';
   }
 
   sendForm(event: Event) {
     event.preventDefault();
-
-    // Validation stricte côté JS
-    if (
-      !this.contactForm.name.trim() ||
-      !this.contactForm.company.trim() ||
-      !this.contactForm.email.trim() ||
-      !this.contactForm.message.trim()
-    ) {
-      this.errorMessage = 'Merci de remplir tous les champs obligatoires.';
-      this.successMessage = '';
-      return;
-    }
-
-    const form = event.target as HTMLFormElement;
-
-    // Ajout manuel du champ offre si besoin
-    const formData = new FormData(form);
-    formData.set('offre', this.selectedOffreName);
+    if (this.envoiEnCours) return;
+    this.envoiEnCours = true;
+    this.successMessage = '';
+    this.errorMessage = '';
 
     emailjs
       .sendForm(
         'service_w5mjf8t', // Remplace par ton Service ID
         'template_ltthxkc', // Remplace par ton Template ID
-        form,
-        '13kADPC_nLL6--0Co' // Remplace par ta clé publique
+        event.target as HTMLFormElement,
+        '13kADPC_nLL6--0Co' // Remplace par ta clé publique EmailJS
       )
       .then(
         (result: EmailJSResponseStatus) => {
           this.successMessage =
-            'Merci, votre demande a bien été envoyée. Nous vous contacterons rapidement !';
+            'Merci, votre message a bien été reçu. Notre équipe veille à vous répondre rapidement.';
           this.errorMessage = '';
-          form.reset();
+          this.envoiEnCours = false;
+          (event.target as HTMLFormElement).reset();
         },
         error => {
           this.errorMessage = "Erreur d'envoi, veuillez réessayer.";
           this.successMessage = '';
+          this.envoiEnCours = false;
         }
       );
   }
