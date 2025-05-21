@@ -193,20 +193,33 @@ body {
   margin: 9rem 0;
   flex-wrap: wrap;
 }
+.feature-card,
+.fonctionnalites-section {
+  background: rgba(255, 255, 255, 0.5); /* Blanc semi-transparent */
+  border-radius: 16px;
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.15),
+    0 0 16px rgba(255, 109, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Pour Safari */
+  border: 1px solid rgba(255, 255, 255, 0.35); /* Liseré blanc doux */
+  padding: 1.5rem;
+  text-align: center;
+  /* Les autres propriétés (width, max-width, margin) sont conservées plus bas */
+}
 
 .feature-card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 16px;
   width: 250px;
   max-width: 90vw;
-  text-align: center;
-  box-shadow:
-    0 12px 24px rgba(0, 0, 0, 0.25),
-    0 0 16px rgba(255, 109, 0, 0.3);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
+}
+
+.fonctionnalites-section {
+  margin: 4rem auto;
+  width: 50%;
+  max-width: 1000px;
 }
 
 .feature-card:hover {
@@ -222,27 +235,16 @@ body {
 }
 
 .feature-card h3 {
-  font-size: 1.1rem;
+  font-size: 1.6rem;
   margin: 0.5rem 0;
   color: var(--color-black-text);
+  font-family: var(--font-title-primary);
 }
 
 .feature-card p {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-.fonctionnalites-section {
-  background: white;
-  border-radius: 16px;
-  padding: 1.5rem;
-  margin: 4rem auto;
-  width: 50%;
-  max-width: 1000px;
-  box-shadow:
-    0 12px 24px rgba(0, 0, 0, 0.15),
-    0 0 12px rgba(255, 109, 0, 0.2);
-  text-align: center;
+  font-size: 1.3rem;
+  color: var(--color-text);
+  font-family: var(--font-title-secondary);
 }
 
 .fonctionnalites-title {
@@ -254,8 +256,8 @@ body {
 }
 
 .fonctionnalites-subtitle {
-  font-size: 1rem;
-  color: #666;
+  font-size: 1.4rem;
+  color: var(--color-text);
   margin-top: -0.5rem;
   margin-bottom: 3rem;
   font-family: var(--font-title-secondary);
@@ -286,8 +288,8 @@ body {
 }
 
 .fonctionnalite-item p {
-  font-size: 0.95rem;
-  color: var(--color-black-text);
+  font-size: 1.2rem;
+  color: var(--color-text);
   margin: 0;
 }
 
@@ -333,6 +335,16 @@ body {
   gap: 10rem;
   width: max-content;
   animation: scroll-left 20s linear infinite;
+}
+
+.fonctionnalites-section:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 16px 32px rgba(0, 0, 0, 0.35),
+    0 0 20px rgba(255, 109, 0, 0.4);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .clients-track img {

@@ -12,14 +12,11 @@
     <div class="h-navbar-group">
       <a routerLink="/" routerLinkActive="active" class="h-link desktop-only">Accueil</a>
       <a routerLink="/offres" routerLinkActive="active" class="h-link desktop-only">Offres</a>
-      <a routerLink="/a-propos" routerLinkActive="active" class="h-link">À propos</a>
-
+      <a routerLink="/a-propos" routerLinkActive="active" class="h-link desktop-only">À propos</a>
       <a routerLink="/contact" routerLinkActive="active" class="h-link desktop-only">
         <span class="icon-envelope">✉</span> Contactez-nous
       </a>
-
       <a routerLink="/demo" class="h-cta desktop-only">Demander une démo</a>
-
       <!-- Bouton mobile -->
       <a routerLink="/demo" class="h-cta mobile-only">Demander une démo</a>
       <div class="h-toggle mobile-only" [class.open]="menuOpen" (click)="menuOpen = !menuOpen">
@@ -31,11 +28,30 @@
   </div>
 
   <!-- Navigation mobile -->
-  <nav class="h-nav mobile-only h-nav-mobile" [class.open]="menuOpen">
-    <a routerLink="/" routerLinkActive="active" class="h-link-mobile">Accueil</a>
-    <a routerLink="/offres" routerLinkActive="active" class="h-link-mobile">Offres</a>
-    <a routerLink="/A-propos" routerLinkActive="active" class="h-link-mobile">A propos</a>
-    <a routerLink="/contact" routerLinkActive="active" class="h-link-mobile">
+  <nav class="h-nav mobile-only" [class.open]="menuOpen">
+    <a routerLink="/" routerLinkActive="active" class="h-link-mobile" (click)="menuOpen = false"
+      >Accueil</a
+    >
+    <a
+      routerLink="/offres"
+      routerLinkActive="active"
+      class="h-link-mobile"
+      (click)="menuOpen = false"
+      >Offres</a
+    >
+    <a
+      routerLink="/a-propos"
+      routerLinkActive="active"
+      class="h-link-mobile"
+      (click)="menuOpen = false"
+      >À propos</a
+    >
+    <a
+      routerLink="/contact"
+      routerLinkActive="active"
+      class="h-link-mobile"
+      (click)="menuOpen = false"
+    >
       <span class="icon-envelope">✉</span> Contactez-nous
     </a>
   </nav>
@@ -47,10 +63,10 @@
 
 <footer class="footer">
   <div class="footer-links">
-    <a href="#" class="nav-link">Conditions générales</a>
-    <a href="#" class="nav-link">Conditions d'utilisation</a>
+    <a routerLink="/conditions-generales" class="nav-link">Conditions générales</a>
+    <a routerLink="/conditions-utilisation" class="nav-link">Conditions générales d'utilisation</a>
     <a href="#" class="nav-link">Politique de confidentialité</a>
     <a href="#" class="nav-link">Mentions légales</a>
-    <a href="#" class="nav-link">Sécurité</a>
+    <!-- <a href="#" class="nav-link">Sécurité</a> -->
   </div>
 </footer>

@@ -6,5 +6,5 @@ ctrl + shift + ù
 
 Depot Git : 
 git add .
-git commit -m "Modification Page Contact"
+git commit -m "4 Page A propos Notre histoire et l'equipe fondatrice"
 git push
